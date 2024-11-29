@@ -27,8 +27,7 @@ Features
 
 -   if-else Statements: Execute code blocks conditionally based on logical expressions.\
     Example:\
-    scss\
-    Copy code\
+
     if (x > 0) {
 
       print(x);
