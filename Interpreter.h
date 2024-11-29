@@ -6,11 +6,12 @@
 #include <string>
 #include <iostream>
 #include <stdexcept>
+using namespace std;
 
 class Interpreter {
 private:
     ASTNode* root;
-    std::unordered_map<std::string, int> variables;
+    unordered_map<string, int> variables; //it will store variables as keys and their values as values
 
     int visit(ASTNode* node) {
         switch (node->type) {
@@ -31,32 +32,32 @@ private:
             case N_BLOCK:
                 return visitBlockNode(static_cast<BlockNode*>(node));
             default:
-                throw std::runtime_error("Unknown node type at line " + std::to_string(node->lineNumber));
+                throw runtime_error("Unknown node type at line " + to_string(node->lineNumber));
         }
     }
 
     int visitVariableNode(VariableNode* node) {
-        const std::string& varName = node->name;
+        const string& varName = node->name;
         if (variables.find(varName) == variables.end())
-            throw std::runtime_error("Undefined variable '" + varName + "' at line " + std::to_string(node->lineNumber));
+            throw runtime_error("Undefined variable '" + varName + "' at line " + to_string(node->lineNumber));
         return variables[varName];
     }
 
     int visitBinOpNode(BinOpNode* node) {
         int left = visit(node->left);
         int right = visit(node->right);
-        const std::string& op = node->op;
+        const string& op = node->op;
         if (op == "+") return left + right;
         if (op == "-") return left - right;
         if (op == "*") return left * right;
         if (op == "/") {
             if (right == 0)
-                throw std::runtime_error("Division by zero at line " + std::to_string(node->lineNumber));
+                throw runtime_error("Division by zero at line " + to_string(node->lineNumber));
             return left / right;
         }
         if (op == "%") {
             if (right == 0)
-                throw std::runtime_error("Modulo by zero at line " + std::to_string(node->lineNumber));
+                throw runtime_error("Modulo by zero at line " + to_string(node->lineNumber));
             return left % right;
         }
         if (op == "==") return left == right;
@@ -66,7 +67,7 @@ private:
         if (op == ">") return left > right;
         if (op == ">=") return left >= right;
         if (op == "!") return !right;
-        throw std::runtime_error("Unknown operator '" + op + "' at line " + std::to_string(node->lineNumber));
+        throw runtime_error("Unknown operator '" + op + "' at line " + to_string(node->lineNumber));
     }
 
     int visitAssignNode(AssignNode* node) {
@@ -77,7 +78,7 @@ private:
 
     int visitPrintNode(PrintNode* node) {
         int value = visit(node->expression);
-        std::cout << value << std::endl;
+        cout << value << endl;
         return value;
     }
 
