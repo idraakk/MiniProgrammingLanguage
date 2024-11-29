@@ -1,14 +1,20 @@
-# MiniProgrammingLanguage
 Mini Compiler
 =============
 
 Overview
 --------
 
+**
+
 Mini Compiler is a simplified interpreter designed to process and execute source code files containing basic programming constructs. It supports variable assignments, arithmetic and logical expressions, control flow statements (if-else and while loops), and print statements. This project serves as an educational tool to understand the fundamental components of a compiler, including lexical analysis, parsing, and interpretation.
+
+**
+=======================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 Features
 --------
+
+**
 
 *   Variable Assignment: Define variables and assign integer values.  
     Example: x = 10;
@@ -28,133 +34,137 @@ Features
 *   Print Statements: Output the result of an expression to the console.  
     Example: print(x);
     
+*   if-else Statements: Execute code blocks conditionally based on logical expressions.  
+    Example:  
+    scss  
+    Copy code  
+    if (x > 0) {
+    
 
-if-else Statements: Execute code blocks conditionally based on logical expressions.  
-Example:  
-scss  
-Copy code  
-if (x > 0) {
-
- print(x);
+    print(x);
 
 } else {
 
- print(0);
+    print(0);
 
 }
 
-*     
+  
+
+*   while Loops: Repeat execution of a code block as long as a condition holds true.  
+    Example:  
+    scss  
+    Copy code  
+    while (x < 5) {
     
 
-while Loops: Repeat execution of a code block as long as a condition holds true.  
-Example:  
-scss  
-Copy code  
-while (x < 5) {
+    print(x);
 
- print(x);
-
- x = x + 1;
+    x = x + 1;
 
 }
 
-*     
-    
+**
+===============================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 File Structure
 --------------
 
-graphql
-
-Copy code
+**  
 
 .
 
-├── main.cpp             # Entry point of the compiler
+├── main.cpp             # Entry point of the compiler
 
-├── Lexer.h              # Handles lexical analysis
+├── Lexer.h              # Handles lexical analysis
 
-├── Queue.h              # Simple queue implementation for tokens
+├── Queue.h              # Simple queue implementation for tokens
 
-├── Parser.h             # Parses tokens and builds the AST
+├── Parser.h             # Parses tokens and builds the AST
 
-├── Interpreter.h        # Interprets and executes the AST
+├── Interpreter.h        # Interprets and executes the AST
 
-├── program1.txt         # Sample Program 1: Variable Assignment and Expression
+├── program1.txt         # Sample Program 1: Variable Assignment and Expression
 
-├── program2.txt         # Sample Program 2: If-Else Statement
+├── program2.txt         # Sample Program 2: If-Else Statement
 
-├── program3.txt         # Sample Program 3: While Loop
+├── program3.txt         # Sample Program 3: While Loop
 
-├── program4.txt         # Sample Program 4: Nested If-Else and While Loop
+├── program4.txt         # Sample Program 4: Nested If-Else and While Loop
 
-├── program5.txt         # Sample Program 5: Summation Using Loops
+├── program5.txt         # Sample Program 5: Summation Using Loops
 
-└── README.md            # Project Documentation
+└── README.md            # Project Documentation
 
   
+**
+===================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
 
 Installation
 ------------
 
 ### Prerequisites
 
+**
+
 *   C++ Compiler: Ensure you have a C++ compiler installed (e.g., g++).
     
 *   C++11 Standard: The project uses C++11 features. Make sure your compiler supports it.
     
 
+**
+===================================================================================================================================================================================
+
 ### Steps
 
+**
+
 Clone the Repository  
-bash  
-Copy code  
+  
 git clone https://github.com/yourusername/mini-compiler.git
 
 cd mini-compiler
 
-1.    
+1.  Compile the Project  
+    g++ -std=c++11 -o mini\_compiler main.cpp
     
-
-Compile the Project  
-c  
-Copy code  
-g++ -std=c++11 -o mini\_compiler main.cpp
-
 2.  This command compiles main.cpp along with the header files and produces an executable named mini\_compiler.
     
+
+**
+==================================================================================================================================================================================================================================================================================================================
 
 Usage
 -----
 
+**
+
 Run the compiler by providing a source code file as an argument:
 
-bash
-
-Copy code
+  
 
 ./mini\_compiler 
 
   
+**
+================================================================================================================
 
 ### Example
 
-bash
-
-Copy code
+**  
 
 ./mini\_compiler program1.txt
 
   
+**
+==========================================
 
 Sample Programs
 ---------------
 
 ### Program 1: Variable Assignment and Arithmetic
 
-makefile
-
-Copy code
+**  
 
 x = 10;
 
@@ -171,12 +181,12 @@ Copy code
 15
 
   
+**
+================================================================================
 
 ### Program 2: If-Else Statement
 
-scss
-
-Copy code
+**  
 
 x = 5;
 
@@ -194,17 +204,15 @@ if (x > 0) {
 
 Expected Output:
 
-Copy code
-
 5
 
   
+**
+===============================================================================================
 
 ### Program 3: While Loop
 
-scss
-
-Copy code
+**  
 
 x = 0;
 
@@ -220,7 +228,7 @@ while (x < 5) {
 
 Expected Output:
 
-Copy code
+  
 
 0
 
@@ -233,12 +241,12 @@ Copy code
 4
 
   
+**
+=========================================================================================================
 
 ### Program 4: Nested If-Else and While Loop
 
-scss
-
-Copy code
+**  
 
 x = 5;
 
@@ -262,9 +270,7 @@ while (x > 0) {
 
 Expected Output:
 
-diff
-
-Copy code
+  
 
 \-5
 
@@ -277,12 +283,12 @@ Copy code
 \-1
 
   
+**
+===============================================================================================================================================================
 
 ### Program 5: Summation Using Loops
 
-scss
-
-Copy code
+**  
 
 x = 10;
 
@@ -302,23 +308,30 @@ print(y);
 
 Expected Output:
 
-Copy code
+  
 
 55
 
   
+**
+===================================================================================================================
 
 Error Handling
 --------------
 
+**
+
 The compiler detects and reports various errors to help you debug your programs effectively.
+
+**
+====================================================================================================
 
 ### Syntax Errors
 
+**
+
 Missing Semicolons: Every statement must end with a semicolon (;).  
 Example:  
-scss  
-Copy code  
 x = 10
 
 print(x);
@@ -328,8 +341,6 @@ print(x);
 
 Unmatched Parentheses or Braces: Ensure all opening parentheses/braces have corresponding closing ones.  
 Example:  
-scss  
-Copy code  
 if (x > 0) {
 
  print(x);
@@ -337,12 +348,15 @@ if (x > 0) {
 *   Error: Expected token '}' at end of file.
     
 
+**
+===========================================================================================================================================================================================================================================================================================================================================================
+
 ### Runtime Errors
+
+**
 
 Division by Zero: Attempting to divide by zero will throw an error.  
 Example:  
-scss  
-Copy code  
 x = 10 / 0;
 
 print(x);
@@ -352,8 +366,7 @@ print(x);
 
 Undefined Variables: Using variables that have not been defined will result in an error.  
 Example:  
-scss  
-Copy code  
+  
 print(y);
 
 *   Error: Undefined variable 'y' at line 1.
@@ -361,8 +374,6 @@ print(y);
 
 Modulo by Zero: Using the modulo operator with zero as the divisor.  
 Example:  
-scss  
-Copy code  
 x = 10 % 0;
 
 print(x);
@@ -370,51 +381,51 @@ print(x);
 *   Error: Modulo by zero at line 1.
     
 
+**
+=======================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
+
 Contributing
 ------------
 
+**
+
 Contributions are welcome! If you have suggestions for improvements or want to add new features, feel free to create an issue or submit a pull request.
+
+**
+===============================================================================================================================================================
 
 ### Steps to Contribute
 
 1.  Fork the Repository  
     Click the "Fork" button at the top-right corner of the repository page.
     
-
-Clone Your Fork  
-bash  
-Copy code  
-git clone https://github.com/yourusername/mini-compiler.git
+2.  Clone Your Fork  
+    bash  
+    Copy code  
+    git clone https://github.com/yourusername/mini-compiler.git
+    
 
 cd mini-compiler
 
-2.    
-    
-
-Create a New Branch  
-  
-git checkout -b feature-name
-
-3.    
+3.  Create a New Branch  
+    git checkout -b feature-name
     
 4.  Make Your Changes  
     Edit the codebase to add your feature or fix bugs.
     
-
-Commit Your Changes  
-  
-git add .
+5.  Commit Your Changes  
+    git add .
+    
 
 git commit -m "Description of your changes"
 
-5.    
-    
-
-Push to Your Fork  
-  
-git push origin feature-name
-
-6.    
+6.  Push to Your Fork  
+    git push origin feature-name
     
 7.  Create a Pull Request  
     Navigate to the original repository and click "Compare & pull request" to submit your changes.
+    
+
+  
+
+===========================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================================
