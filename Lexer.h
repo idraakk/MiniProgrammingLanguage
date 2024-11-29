@@ -2,21 +2,21 @@
 #define LEXER_H
 
 #include <string>
-#include <cctype>
-#include <stdexcept>
-#include "Queue.h"
+#include <cctype> // has the functions like isalnum() and isspace()
+#include <stdexcept> //errro handle krne me
+#include "Queue.h" //my self built queue
 
 // Token types
 enum TokenType {
-    T_IDENTIFIER,
-    T_NUMBER,
+    T_IDENTIFIER, //all variables
+    T_NUMBER, //constants
     T_OPERATOR,
-    T_ASSIGN,
+    T_ASSIGN, //=
     T_SEMICOLON,
-    T_LPAREN,
-    T_RPAREN,
-    T_LBRACE,
-    T_RBRACE,
+    T_LPAREN, //(
+    T_RPAREN,//)
+    T_LBRACE,//{
+    T_RBRACE,//}
     T_IF,
     T_ELSE,
     T_WHILE,
@@ -34,8 +34,20 @@ struct Token {
 
 class Lexer {
 private:
-    std::string input;
-    size_t pos;
+
+// class Lexer has 4 private functions:
+
+// advance(): that advances the string pointer forward
+// skipWhitespace()
+// identifier() : identifies the whole word and returns a token relating to that word
+// number(): identifies the number and return the whole token
+
+// and 2 public functions:
+// constructor
+// generateTokens(): returns the whole queue of structure tokens
+
+    std::string input; // for complete source code (for program1.txt: "x = 10;\ny = x + 5;\nprint(y);")
+    size_t pos; // for traversal- curret position
     char currentChar;
     int lineNumber;
 
